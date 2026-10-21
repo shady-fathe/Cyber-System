@@ -1,9 +1,3 @@
-/*
-عايز داله تربط زرار تغير 
-التارجت بي الارقام مع القيمه 
- اقدر اعدل الرقم الخاص بالتارجت
- و ف نفس الوقت القيمه الي ف الدايره تظهر 
-*/
 let MainTargetNumber = document.getElementById("TargetNumber");
 let ProssesTargetNumber = document.getElementById("Prosses-Target-Number");
 let targetpercint = document.querySelector(".target-percint");
@@ -14,17 +8,45 @@ let PopupBtnDelete = document.querySelector(".popup-btn-delete");
 let PopupBtnDeleteAll = document.querySelector(".popup-btn-delete-all");
 let btnSetTarget = document.querySelector(".btn-Set-Target");
 let MainTarget = localStorage.getItem("Target");
-let percint;
 let ProssesTarget = localStorage.getItem("ProssesTarget");
+let btnstartTime = document.querySelectorAll(".start");
+let timer = document.querySelectorAll(".timer");
+let OfflineCountPc = document.getElementById("Offline-pc-count");
+let OnlineCountPc = document.getElementById("Online-pc-count");
+let OfflineCountPS = document.getElementById("Offline-ps-count");
+let OnlineCountPS = document.getElementById("online-ps-count");
+/////////////////////
+let percint;
+let OnlinePC;
+let OfflinePC; 
+let onlinePS;
+let OfflinePS;
+/////////////////////
+// OnlineCountPc.inner
+
+
 
 
 function updateValues(){
    MainTargetNumber.textContent = "$" + MainTarget;
-  ProssesTargetNumber.textContent = "$" + ProssesTarget;
+   if (ProssesTarget === null) {
+     ProssesTarget = 0
+     // after that the ProssesTarget will be Equal ps + pc + dr Daily money  colected to show A pircent of target 
+    }else{
+    ProssesTargetNumber.textContent = "$" + ProssesTarget;
+  }
   targetpercint.textContent = percint + "%"; 
 if (popupTargetinput.value === "") {
   MainTarget = 0;
 }
+
+OfflineCountPc.innerHTML = '0'
+OnlineCountPc.innerHTML = '0'
+OfflineCountPS.innerHTML = '0'
+OnlineCountPS.innerHTML = '0'
+
+
+
 }
 
 // Target functions
@@ -86,7 +108,7 @@ function addDeleteNm() {
     percint = "0";
   } else if (MainTarget === "") {
     MainTarget = 0;
-  }
+  } 
 updateValues()
 }
 
