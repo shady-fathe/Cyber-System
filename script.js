@@ -1,5 +1,5 @@
 let MainTargetNumber = document.getElementById("TargetNumber");
-let ProssesTargetNumber = document.getElementById("Prosses-Target-Number");
+let ProssesTargetNumber = document.querySelectorAll("#Prosses-Target-Number");
 let targetpercint = document.querySelector(".target-percint");
 let popuptarget = document.querySelector(".popup-target");
 let popupTargetinput = document.querySelector(".popup-target input");
@@ -15,15 +15,27 @@ let OfflineCountPc = document.getElementById("Offline-pc-count");
 let OnlineCountPc = document.getElementById("Online-pc-count");
 let OfflineCountPS = document.getElementById("Offline-ps-count");
 let OnlineCountPS = document.getElementById("online-ps-count");
+let DrinksSold = document.querySelectorAll("#Drinks-Sold");
 /////////////////////
 let percint;
 let OnlinePC;
 let OfflinePC; 
 let onlinePS;
 let OfflinePS;
-/////////////////////
-// OnlineCountPc.inner
-
+let DrinksSoldCount = 0;
+/*
+ theare are array included All Drinkes i should loop on it to 
+ create all itmes with classes and id 
+ [
+ ok if(in stock more then 10),
+ low if(in stock more less 10),
+ out if(have nothing in stock)
+ ] 
+*/
+// DrinksStock
+let Drinks = ["Sting","Fury","Red Bull","Monster","Tea","Coffee"]
+let DrinksStock;
+///////////////////////
 
 
 
@@ -33,8 +45,26 @@ function updateValues(){
      ProssesTarget = 0
      // after that the ProssesTarget will be Equal ps + pc + dr Daily money  colected to show A pircent of target 
     }else{
-    ProssesTargetNumber.textContent = "$" + ProssesTarget;
+      ProssesTargetNumber.forEach(e => {
+      e.textContent = "$" + ProssesTarget;
+    });
   }
+
+
+DrinksSold.forEach(D => {
+if(DrinksSold === null){
+D.innerHTML = "0"
+}else{
+D.innerHTML = DrinksSoldCount;
+}
+});
+
+
+
+
+
+
+  
   targetpercint.textContent = percint + "%"; 
 if (popupTargetinput.value === "") {
   MainTarget = 0;
