@@ -13,7 +13,12 @@
 
   <body>
     <!-- Theme toggle (CSS only) -->
-    <input type="checkbox"id="theme-toggle"class="sr-only" aria-label="Toggle light theme"/>
+    <input
+      type="checkbox"
+      id="theme-toggle"
+      class="sr-only"
+      aria-label="Toggle light theme"
+    />
     <main>
       <!-- ================= SIDEBAR ================= -->
       <nav>
@@ -23,22 +28,34 @@
         </div>
         <ul>
           <li class="active-nav">
-            <a href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a>
+            <a href="#home"
+              ><i class="fa-solid fa-house"></i><span>Home</span></a
+            >
           </li>
           <li>
             <a href="#pc"><i class="fa-solid fa-desktop"></i><span>PC</span></a>
           </li>
           <li>
-            <a href="#ps"><i class="fa-brands fa-playstation"></i><span>PS</span></a>
+            <a href="#ps"
+              ><i class="fa-brands fa-playstation"></i><span>PS</span></a
+            >
           </li>
           <li>
-            <a href="#drinks"><i class="fa-solid fa-martini-glass-citrus"></i><span>Drinks</span></a>
+            <a href="#drinks"
+              ><i class="fa-solid fa-martini-glass-citrus"></i
+              ><span>Drinks</span></a
+            >
           </li>
           <li>
-            <a href="#activity"><i class="fa-solid fa-clock-rotate-left"></i><span>Activity</span></a>
+            <a href="#activity"
+              ><i class="fa-solid fa-clock-rotate-left"></i
+              ><span>Activity</span></a
+            >
           </li>
           <li class="nav-reset">
-            <a href="#"><i class="fa-solid fa-rotate-right"></i><span>Reset</span></a>
+            <a href="#"
+              ><i class="fa-solid fa-rotate-right"></i><span>Reset</span></a
+            >
           </li>
         </ul>
         <label for="theme-toggle" class="theme-btn" title="Dark / Light">
@@ -83,28 +100,36 @@
         <!-- Quick stats -->
         <div class="stats-grid">
           <article class="stat-card">
-            <span class="stat-icon c-violet"><i class="fa-solid fa-sack-dollar"></i></span>
+            <span class="stat-icon c-violet"
+              ><i class="fa-solid fa-sack-dollar"></i
+            ></span>
             <div>
               <p class="stat-label">Revenue today</p>
               <h2 class="stat-value" id="Prosses-Target-Number"></h2>
             </div>
           </article>
           <article class="stat-card">
-            <span class="stat-icon c-green"><i class="fa-solid fa-users"></i></span>
+            <span class="stat-icon c-green"
+              ><i class="fa-solid fa-users"></i
+            ></span>
             <div>
               <p class="stat-label">Active sessions</p>
               <h2 class="stat-value">10</h2>
             </div>
           </article>
           <article class="stat-card">
-            <span class="stat-icon c-amber"><i class="fa-solid fa-hourglass-half"></i></span>
+            <span class="stat-icon c-amber"
+              ><i class="fa-solid fa-hourglass-half"></i
+            ></span>
             <div>
               <p class="stat-label">Avg. session</p>
               <h2 class="stat-value">1h 45m</h2>
             </div>
           </article>
           <article class="stat-card">
-            <span class="stat-icon c-cyan"><i class="fa-solid fa-mug-hot"></i></span>
+            <span class="stat-icon c-cyan"
+              ><i class="fa-solid fa-mug-hot"></i
+            ></span>
             <div>
               <p class="stat-label">Drinks sold</p>
               <h2 class="stat-value" id="Drinks-Sold"></h2>
@@ -116,7 +141,13 @@
         <div class="popup-target">
           <div class="popup-target-header">
             <h2>Set Target</h2>
-            <button class="btn-Target-popup-Exit"onclick="popupExit()"aria-label="Close">x</button>
+            <button
+              class="btn-Target-popup-Exit"
+              onclick="popupETargetExit()"
+              aria-label="Close"
+            >
+              x
+            </button>
           </div>
           <input type="number" placeholder="Type Valid Number" maxlength="0" />
           <div class="popup-number-group">
@@ -598,70 +629,29 @@
         <div class="stations-header">
           <div>
             <h1>
-              <i class="fa-solid fa-martini-glass-citrus"></i> Drinks Menu
+              <i class="fa-solid fa-martini-glass-citrus"></i>
+              Drinks Menu
             </h1>
             <p class="page-sub">Tap + to add a drink to a station's bill</p>
           </div>
+          <button id="Add-Drink">New Itme</button>
         </div>
         <div class="drinks-grid">
-          <article class="drink-card">
-            <span class="drink-icon"
-              ><i class="fa-solid fa-bottle-water"></i
-            ></span>
-            <h3>Sting</h3>
-            <p class="drink-price">$1.00</p>
-            <p class="stock ok">In stock: 24</p>
-            <button class="card-btn start">
-              <i class="fa-solid fa-plus"></i> Add
-            </button>
-          </article>
-          <article class="drink-card">
-            <span class="drink-icon"
-              ><i class="fa-solid fa-bottle-water"></i
-            ></span>
-            <h3>Fury</h3>
-            <p class="drink-price">$0.80</p>
-            <p class="stock ok">In stock: 18</p>
-            <button class="card-btn start">
-              <i class="fa-solid fa-plus"></i> Add
-            </button>
-          </article>
-          <article class="drink-card">
-            <span class="drink-icon"><i class="fa-solid fa-bolt"></i></span>
-            <h3>Red Bull</h3>
-            <p class="drink-price">$2.00</p>
-            <p class="stock low">Low: 4</p>
-            <button class="card-btn start">
-              <i class="fa-solid fa-plus"></i> Add
-            </button>
-          </article>
-          <article class="drink-card">
-            <span class="drink-icon"><i class="fa-solid fa-bolt"></i></span>
-            <h3>Monster</h3>
-            <p class="drink-price">$2.20</p>
-            <p class="stock ok">In stock: 12</p>
-            <button class="card-btn start">
-              <i class="fa-solid fa-plus"></i> Add
-            </button>
-          </article>
-          <article class="drink-card">
-            <span class="drink-icon"><i class="fa-solid fa-mug-hot"></i></span>
-            <h3>Tea</h3>
-            <p class="drink-price">$0.50</p>
-            <p class="stock ok">In stock: 20</p>
-            <button class="card-btn start">
-              <i class="fa-solid fa-plus"></i> Add
-            </button>
-          </article>
-          <article class="drink-card">
-            <span class="drink-icon"
-              ><i class="fa-solid fa-mug-saucer"></i
-            ></span>
-            <h3>Coffee</h3>
-            <p class="drink-price">$0.90</p>
-            <p class="stock out">Out of stock</p>
-            <button class="card-btn" disabled>Add</button>
-          </article>
+
+
+          
+        </div>
+        <div class="popup-New-Drink">
+          <div class="popup-Drink-header">
+            <h2>New Itme</h2>
+            <button class="btn-Drink-popup-Exit" onclick="DrinkpopupExit()" aria-label="Close">x</button>
+          </div>
+          <input type="text" placeholder="Itme Name" id="input-New-Drink-name"/>
+          <div class="popup-Drink-inputs">
+            <input type="number" placeholder="count" id="input-New-Drink-Count"/>
+            <input type="number" placeholder="price" id="input-New-Drink-Price"/>
+          </div>
+          <button class="btn-create-New-drink">Add</button>
         </div>
       </section>
 

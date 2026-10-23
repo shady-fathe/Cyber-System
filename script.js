@@ -15,7 +15,17 @@ let OfflineCountPc = document.getElementById("Offline-pc-count");
 let OnlineCountPc = document.getElementById("Online-pc-count");
 let OfflineCountPS = document.getElementById("Offline-ps-count");
 let OnlineCountPS = document.getElementById("online-ps-count");
+// Drinks section
+let DrinksContainer = document.querySelector(".drinks-grid");
+let btnAddDrink = document.getElementById("Add-Drink");
 let DrinksSold = document.querySelectorAll("#Drinks-Sold");
+let popupNewDrink = document.querySelector(".popup-New-Drink");
+let btnDrinkpopupExit = document.querySelector(".btn-Drink-popup-Exit");
+let btnCreateDrink = document.querySelector(".btn-create-New-drink"); 
+let inputDrinkName =  document.getElementById("input-New-Drink-name");
+let inputDrinkPrice =  document.getElementById("input-New-Drink-Price");
+let inputDrinkCount =  document.getElementById("input-New-Drink-Count");
+
 /////////////////////
 let percint;
 let OnlinePC;
@@ -32,13 +42,66 @@ let DrinksSoldCount = 0;
  out if(have nothing in stock)
  ] 
 */
-// DrinksStock
+// Drinks section
 let Drinks = ["Sting","Fury","Red Bull","Monster","Tea","Coffee"]
 let DrinksStock;
+
+btnAddDrink.onclick = function(){
+  popupNewDrink.style.opacity = 1;
+  popupNewDrink.style.pointerEvents = "auto";  
+}
+function DrinkpopupExit(){
+popupNewDrink.style.opacity = 0;
+popupNewDrink.style.pointerEvents = "none";
+}
+btnCreateDrink.onclick = function(){
+  let newDrink = document.createElement('div');
+newDrink.innerHTML +=`
+          <article class="drink-card">
+            <span class="drink-icon"
+              ><i class="fa-solid fa-mug-saucer"></i
+            ></span>
+            <h3>${document.getElementById("input-New-Drink-name").value}</h3>
+            <p class="drink-price">$${document.getElementById("input-New-Drink-Price").value}</p>
+            <p class="stock ok">In stock: ${document.getElementById("input-New-Drink-Count").value}</p>
+           <button class="card-btn start">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+          </article>
+`
+
+if(inputDrinkName.value === ""|| inputDrinkPrice.value < 0|| inputDrinkCount.value < 0 ){
+  inputDrinkName.setAttribute("placeholder", "Not Valid"); 
+  inputDrinkName.value = ""
+  dinputDrinkPrice.value = ''
+  inputDrinkCount.value = ''
+}else{
+  DrinksContainer.appendChild(newDrink) ;
+inputDrinkName.value = ""
+inputDrinkPrice.value = ''
+inputDrinkCount.value = ''
+DrinkpopupExit()
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+// if(document.getElementById("input-New-Drink-name").value === ""){
+// console.log("it is fy")
+// }else if(document.getElementById("input-New-Drink-Count").value <  0 ){
+// console.log("smaller")
+// }
 ///////////////////////
 
-
-
+// function to update value with any action
 function updateValues(){
    MainTargetNumber.textContent = "$" + MainTarget;
    if (ProssesTarget === null) {
@@ -52,7 +115,7 @@ function updateValues(){
 
 
 DrinksSold.forEach(D => {
-if(DrinksSold === null){
+if(D === null){
 D.innerHTML = "0"
 }else{
 D.innerHTML = DrinksSoldCount;
@@ -78,10 +141,10 @@ OnlineCountPS.innerHTML = '0'
 
 
 }
-
+ 
 // Target functions
 // Function Remove popup
-function popupExit() {
+function popupETargetExit() {
   popuptarget.style.opacity = 0;
   popuptarget.style.pointerEvents = "none";
 }
